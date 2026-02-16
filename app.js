@@ -49,3 +49,25 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
 const myModule = require('./my-module.js');
 
 console.log(myModule.myFunction());
+
+
+const condition = true; // you can change this to false to test rejection
+
+const myPromise = new Promise((resolve, reject) => {
+  if (condition) {
+    resolve('Success!');
+  } else {
+    reject('Failure!');
+  }
+});
+
+// Handling the Promise
+myPromise
+  .then((result) => {
+    console.log(result);  // Runs if resolved
+  })
+  .catch((error) => {
+    console.log(error);   // Runs if rejected
+  });
+
+  
