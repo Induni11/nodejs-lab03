@@ -45,3 +45,7 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
 });
 
 
+//q5
+const myModule = require('./my-module.js');
+
+console.log(myModule.myFunction());
