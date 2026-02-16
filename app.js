@@ -51,23 +51,33 @@ const myModule = require('./my-module.js');
 console.log(myModule.myFunction());
 
 
-const condition = true; // you can change this to false to test rejection
+// ===== Promises =====
+const condition1 = true;
 
-const myPromise = new Promise((resolve, reject) => {
-  if (condition) {
-    resolve('Success!');
-  } else {
-    reject('Failure!');
-  }
+const myPromise1 = new Promise((resolve, reject) => {
+  if (condition1) resolve('Success!');
+  else reject('Failure!');
 });
 
-// Handling the Promise
-myPromise
-  .then((result) => {
-    console.log(result);  // Runs if resolved
-  })
-  .catch((error) => {
-    console.log(error);   // Runs if rejected
-  });
+myPromise1
+  .then(result => console.log('Promise result:', result))
+  .catch(error => console.log('Promise error:', error));
 
-  
+// ===== Async/Await =====
+const condition2 = true;
+
+const myPromise2 = new Promise((resolve, reject) => {
+  if (condition2) resolve('Success with Async/Await!');
+  else reject('Failure with Async/Await!');
+});
+
+async function myAsyncFunction() {
+  try {
+    const result = await myPromise2;
+    console.log('Async/Await result:', result);
+  } catch (error) {
+    console.log('Async/Await error:', error);
+  }
+}
+
+myAsyncFunction();
